@@ -2,9 +2,10 @@
   el-row.container
     el-col(:xs="24" :sm="21" :lg="18")
       el-container
-        el-header
-          h1 matureByBooks
-          span 本からの学びを最大化するアプリ
+        el-header.pt-200
+          el-card(:body-style="{ padding: '6px' }")
+            .fs-300.fw-bold matureByBooks
+            .fs-100 本からの学びを最大化するアプリ
         el-main
           el-row(:gutter="12")
             el-col(v-for="i in Array(5)" :key="i", :xs="24" :sm="12" :lg="6")
@@ -85,6 +86,8 @@ export default Vue.extend({
 .container {
   display: flex;
   justify-content: center;
+  background-image: url('~assets/background.jpg');
+  background-size: 100%;
 }
 .book-img {
   width: 100%;

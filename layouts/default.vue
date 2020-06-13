@@ -65,6 +65,48 @@ html {
   margin-bottom: 12px;
 }
 
+.px-100 {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.py-100 {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.pl-100 {
+  padding-left: 6px;
+}
+.pr-100 {
+  padding-right: 6px;
+}
+.pt-100 {
+  padding-top: 6px;
+}
+.pb-100 {
+  padding-bottom: 6px;
+}
+
+.px-200 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.py-200 {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.pl-200 {
+  padding-left: 12px;
+}
+.pr-200 {
+  padding-right: 12px;
+}
+.pt-200 {
+  padding-top: 12px;
+}
+.pb-200 {
+  padding-bottom: 12px;
+}
+
 .fs-100 {
   font-size: 12px;
 }
