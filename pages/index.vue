@@ -9,15 +9,37 @@
           el-row(:gutter="12")
             el-col(v-for="i in Array(5)" :key="i", :xs="24" :sm="12" :lg="6")
               el-card.mb-200
-                el-row.mb-100
-                  el-col(:span="8")
-                    img.book-img(src="~assets/book.jpg")
-                  el-col(:span="16")
-                    .mx-100
-                      h3 リーン・スタートアップ
-                      div スタートアップの原則をまとめた本
-                div 学び：原則を知れる
-                div 目標：個人開発に応用する
+                .book
+                  el-row.mb-100
+                    el-col(:span="8")
+                      img.book-img(src="~assets/book.jpg")
+                    el-col(:span="16")
+                      .mx-100
+                        .fs-400.fw-bold {{ books[0].name }}
+                        .fs-100 {{ books[0].description }}
+                .learning.mb-200
+                  .fs-300
+                   i.mr-100(class="el-icon-notebook-2")
+                   span.fw-bold 学び
+                  .fs-200
+                    .action
+                      span.fw-bold 期待：
+                      span {{ books[0].learning.expection }}
+                    .action
+                      span.fw-bold 結果：
+                      span {{ books[0].learning.result }}
+                .goal
+                  .fs-300
+                   i.mr-100(class="el-icon-trophy")
+                   span.fw-bold 目標
+                  .fs-200
+                    .target
+                      span.fw-bold 指標：
+                      span {{ books[0].goal.target }}
+                    .action
+                      span.fw-bold 行動：
+                      span {{ books[0].goal.action }}
+                    el-progress.mt-100(:percentage="books[0].goal.progress")
 </template>
 
 <script lang="ts">
@@ -25,6 +47,27 @@ import Vue from 'vue'
 // import firebase from '~/plugins/firebase.js'
 
 export default Vue.extend({
+  data() {
+    return {
+      books: [
+        {
+          id: 1,
+          name: 'リーン・スタートアップ',
+          description:
+            'シリコンバレーでいまや「常識」となった製品・サービス開発手法',
+          learning: {
+            expection: 'スタートアップでの開発方法',
+            result: ''
+          },
+          goal: {
+            target: '開発をどうすべきかを人に語れる',
+            action: '本の内容を意識しながら個人開発',
+            progress: 20
+          }
+        }
+      ]
+    }
+  },
   created() {
     // firebase
     //   .firestore()

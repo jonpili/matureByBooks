@@ -8,6 +8,7 @@
 html {
   font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ',
     Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+  font-size: 18px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -62,5 +63,25 @@ html {
 }
 .mb-200 {
   margin-bottom: 12px;
+}
+
+.fs-100 {
+  font-size: 12px;
+}
+.fs-200 {
+  font-size: 15px;
+}
+.fs-300 {
+  font-size: 18px;
+}
+.fs-400 {
+  font-size: 24px;
+}
+.fs-500 {
+  font-size: 36px;
+}
+
+.fw-bold {
+  font-weight: bold;
 }
 </style>
