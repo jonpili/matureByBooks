@@ -11,11 +11,22 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import firebase from '~/plugins/firebase.js'
 import Logo from '~/components/Logo.vue'
 
 export default Vue.extend({
   components: {
     Logo
+  },
+  created() {
+    firebase
+      .firestore()
+      .collection('books')
+      .doc('book1')
+      .get()
+      .then((doc) => {
+        console.log(doc.data())
+      })
   }
 })
 </script>

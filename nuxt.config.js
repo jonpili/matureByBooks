@@ -1,3 +1,6 @@
+require('dotenv').config()
+const { FIREBASE_API_KEY } = process.env
+
 export default {
   mode: 'universal',
   /*
@@ -53,5 +56,8 @@ export default {
      ** You can extend webpack config here
      */
     extend(_config, _ctx) {}
+  },
+  env: {
+    FIREBASE_API_KEY
   }
 }
