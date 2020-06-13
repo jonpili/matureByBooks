@@ -6,10 +6,9 @@
 
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
+  font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ',
+    Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+  font-size: 18px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
@@ -24,32 +23,107 @@ html {
   margin: 0;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.mx-100 {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+.my-100 {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.ml-100 {
+  margin-left: 6px;
+}
+.mr-100 {
+  margin-right: 6px;
+}
+.mt-100 {
+  margin-top: 6px;
+}
+.mb-100 {
+  margin-bottom: 6px;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.mx-200 {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.my-200 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.ml-200 {
+  margin-left: 12px;
+}
+.mr-200 {
+  margin-right: 12px;
+}
+.mt-200 {
+  margin-top: 12px;
+}
+.mb-200 {
+  margin-bottom: 12px;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+.px-100 {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.py-100 {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.pl-100 {
+  padding-left: 6px;
+}
+.pr-100 {
+  padding-right: 6px;
+}
+.pt-100 {
+  padding-top: 6px;
+}
+.pb-100 {
+  padding-bottom: 6px;
 }
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.px-200 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.py-200 {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.pl-200 {
+  padding-left: 12px;
+}
+.pr-200 {
+  padding-right: 12px;
+}
+.pt-200 {
+  padding-top: 12px;
+}
+.pb-200 {
+  padding-bottom: 12px;
+}
+
+.fs-100 {
+  font-size: 12px;
+}
+.fs-200 {
+  font-size: 15px;
+}
+.fs-300 {
+  font-size: 18px;
+}
+.fs-400 {
+  font-size: 24px;
+}
+.fs-500 {
+  font-size: 36px;
+}
+
+.fw-bold {
+  font-weight: bold;
 }
 </style>

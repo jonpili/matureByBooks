@@ -1,65 +1,95 @@
 <template lang="pug">
-  .container
-    div
-      logo
-      h1.title matureByBooks
-      h2.subtitle 本からの学びを最大化するアプリ
-      .links
-        a.button--green(href="https://nuxtjs.org/" target="_blank") Documentation
-        a.button--grey(href="https://github.com/nuxt/nuxt.js" target="_blank") GitHub
+  el-row.container
+    el-col(:xs="24" :sm="21" :lg="18")
+      el-container
+        el-header.pt-200
+          el-card(:body-style="{ padding: '6px' }")
+            .fs-300.fw-bold matureByBooks
+            .fs-100 本からの学びを最大化するアプリ
+        el-main
+          el-row(:gutter="12")
+            el-col(v-for="i in Array(5)" :key="i", :xs="24" :sm="12" :lg="6")
+              el-card.mb-200
+                .book
+                  el-row.mb-100
+                    el-col(:span="8")
+                      img.book-img(src="~assets/book.jpg")
+                    el-col(:span="16")
+                      .mx-100
+                        .fs-400.fw-bold {{ books[0].name }}
+                        .fs-100 {{ books[0].description }}
+                .learning.mb-200
+                  .fs-300
+                   i.mr-100(class="el-icon-notebook-2")
+                   span.fw-bold 学び
+                  .fs-200
+                    .action
+                      span.fw-bold 期待：
+                      span {{ books[0].learning.expection }}
+                    .action
+                      span.fw-bold 結果：
+                      span {{ books[0].learning.result }}
+                .goal
+                  .fs-300
+                   i.mr-100(class="el-icon-trophy")
+                   span.fw-bold 目標
+                  .fs-200
+                    .target
+                      span.fw-bold 指標：
+                      span {{ books[0].goal.target }}
+                    .action
+                      span.fw-bold 行動：
+                      span {{ books[0].goal.action }}
+                    el-progress.mt-100(:percentage="books[0].goal.progress")
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import firebase from '~/plugins/firebase.js'
-import Logo from '~/components/Logo.vue'
+// import firebase from '~/plugins/firebase.js'
 
 export default Vue.extend({
-  components: {
-    Logo
+  data() {
+    return {
+      books: [
+        {
+          id: 1,
+          name: 'リーン・スタートアップ',
+          description:
+            'シリコンバレーでいまや「常識」となった製品・サービス開発手法',
+          learning: {
+            expection: 'スタートアップでの開発方法',
+            result: ''
+          },
+          goal: {
+            target: '開発をどうすべきかを人に語れる',
+            action: '本の内容を意識しながら個人開発',
+            progress: 20
+          }
+        }
+      ]
+    }
   },
   created() {
-    firebase
-      .firestore()
-      .collection('books')
-      .doc('book1')
-      .get()
-      .then((doc) => {
-        console.log(doc.data())
-      })
+    // firebase
+    //   .firestore()
+    //   .collection('books')
+    //   .doc('book1')
+    //   .get()
+    //   .then((doc) => {
+    //     console.log(doc.data())
+    //   })
   }
 })
 </script>
 
 <style>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  background-image: url('~assets/background.jpg');
+  background-size: 100%;
 }
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.book-img {
+  width: 100%;
 }
 </style>
