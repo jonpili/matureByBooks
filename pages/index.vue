@@ -1,12 +1,16 @@
 <template lang="pug">
-  .container
-    div
-      logo
-      h1.title matureByBooks
-      h2.subtitle 本からの学びを最大化するアプリ
-      .links
-        a.button--green(href="https://nuxtjs.org/" target="_blank") Documentation
-        a.button--grey(href="https://github.com/nuxt/nuxt.js" target="_blank") GitHub
+  el-row.container
+    el-col(:xs="24" :sm="21" :lg="18")
+      el-container
+        el-header
+          h1 matureByBooks
+          span 本からの学びを最大化するアプリ
+        el-main
+          el-row
+            el-col(v-for="i in Array(5)" :key="i", :xs="24" :sm="12" :lg="6")
+              el-card.card
+                span(slot="header") リーン・スタートアップ
+                div スタートアップの原則をまとめた本
 </template>
 
 <script lang="ts">
@@ -19,47 +23,24 @@ export default Vue.extend({
     Logo
   },
   created() {
-    firebase
-      .firestore()
-      .collection('books')
-      .doc('book1')
-      .get()
-      .then((doc) => {
-        console.log(doc.data())
-      })
+    // firebase
+    //   .firestore()
+    //   .collection('books')
+    //   .doc('book1')
+    //   .get()
+    //   .then((doc) => {
+    //     console.log(doc.data())
+    //   })
   }
 })
 </script>
 
 <style>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
 }
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+.card {
+  margin: 12px;
 }
 </style>
