@@ -1,15 +1,19 @@
 <template lang="pug">
   el-row.container
     el-col(:xs="24" :sm="21" :lg="18")
-      el-container
-        el-header.pt-200
-          el-card(:body-style="{ padding: '6px' }")
-            .fs-300.fw-bold matureByBooks
-            .fs-100 本からの学びを最大化するアプリ
-        el-main
+      .px-200.py-200
+        .header.mb-200
+          el-card(:body-style="{ padding: '12px' }")
+            el-row
+              el-col.title(:xs="24" :sm="12" :lg="12")
+                .fs-300.fw-bold matureByBooks
+                .fs-100 本からの学びを最大化するアプリ
+              el-col.menu(:xs="24" :sm="12" :lg="12")
+                span メニュー
+        .main
           el-row(:gutter="12")
-            el-col(v-for="book in books" :key="book.id", :xs="24" :sm="12" :lg="6")
-              m-card.mb-200(:book="book")
+            el-col.mb-200(v-for="book in books" :key="book.id", :xs="24" :sm="12" :lg="6")
+              m-card(:book="book")
 </template>
 
 <script lang="ts">
@@ -53,11 +57,17 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
 .container {
   display: flex;
   justify-content: center;
   background-image: url('~assets/background.jpg');
   background-size: 100%;
+  .header {
+    .menu {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
 }
 </style>

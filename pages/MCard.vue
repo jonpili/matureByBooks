@@ -1,14 +1,14 @@
 <template lang="pug">
-  el-card
+  el-card(:body-style="{ padding: '12px' }")
     .book
-      el-row.mb-100
+      el-row
         el-col(:span="8")
           img.book-img(src="~assets/book.jpg")
         el-col(:span="16")
-          .mx-100
+          .px-100
             .fs-400.fw-bold {{ book.name }}
             .fs-100 {{ book.description }}
-    .learning.mb-200
+    .learning.mb-100
       .fs-300
         i.mr-100(class="el-icon-notebook-2")
         span.fw-bold 学び
@@ -46,7 +46,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
 .book-img {
   width: 100%;
 }
