@@ -2,31 +2,34 @@
   el-dialog(title="カードを追加する" :width="width" :visible="visible" @update:visible="updateValue" :before-close="handleClose")
     .book.pb-200
       .mb-200.fs-300.fw-bold 本の内容
-      .mb-200
-        .mb-100.fw-bold タイトル
-        el-input(v-model="book.name")
-      .mb-200
-        .mb-100.fw-bold 説明
-        el-input(v-model="book.description")
+      el-row(:gutter="20")
+        el-col.mb-200(:xs="24" :sm="12" :lg="12")
+          .mb-100.fw-bold タイトル
+          el-input(v-model="book.name")
+        el-col.mb-200(:xs="24" :sm="12" :lg="12")
+          .mb-100.fw-bold 説明
+          el-input(v-model="book.description")
     .learning.pb-200
       .mb-200.fs-300.fw-bold 学び
-      .mb-200
-        .mb-100.fw-bold 期待
-        el-input(v-model="book.learning.expection")
-      .mb-200
-        .mb-100.fw-bold 結果
-        el-input(v-model="book.learning.result")
+      el-row(:gutter="20")
+        el-col.mb-200(:xs="24" :sm="12" :lg="12")
+          .mb-100.fw-bold 期待
+          el-input(v-model="book.learning.expection")
+        el-col.mb-200(:xs="24" :sm="12" :lg="12")
+          .mb-100.fw-bold 結果
+          el-input(v-model="book.learning.result")
     .goal.pb-200
       .mb-200.fs-300.fw-bold 目標
-      .mb-200
-        .mb-100.fw-bold 指標
-        el-input(v-model="book.goal.target")
-      .mb-200
-        .mb-100.fw-bold 目標
-        el-input(v-model="book.goal.action")
+      el-row(:gutter="20")
+        el-col.mb-200(:xs="24" :sm="12" :lg="12")
+          .mb-100.fw-bold 指標
+          el-input(v-model="book.goal.target")
+        el-col.mb-200(:xs="24" :sm="12" :lg="12")
+          .mb-100.fw-bold 目標
+          el-input(v-model="book.goal.action")
       .mb-200
         .mb-100.fw-bold 進捗
-        el-slider(v-model="book.goal.progress" :step="10")
+      el-slider(v-model="book.goal.progress" :step="10")
 </template>
 
 <script lang="ts">
