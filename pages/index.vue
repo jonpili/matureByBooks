@@ -9,7 +9,7 @@
                 .fs-300.fw-bold matureByBooks
                 .fs-100 本からの学びを最大化するアプリ
               el-col.menu(:xs="24" :sm="12" :lg="12")
-                span メニュー
+                el-button.my-50(@click="openAddCardModal = true" icon="el-icon-plus" circle)
         .main
           el-row(:gutter="12")
             el-col.mb-200(v-for="book in books" :key="book.id", :xs="24" :sm="12" :lg="6")
@@ -23,6 +23,7 @@ import MCard from '~/pages/MCard.vue'
 
 type Data = {
   books: Array<Books>
+  openAddCardModal: boolean
 }
 
 type Books = {
@@ -46,7 +47,8 @@ export default Vue.extend({
   },
   data(): Data {
     return {
-      books: []
+      books: [],
+      openAddCardModal: false
     }
   },
   firestore() {

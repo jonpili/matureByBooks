@@ -16,6 +16,7 @@ $m-size-8: 32px;
 $m-size-9: 36px;
 
 $m-spaces: (
+  50: $m-size-1,
   100: $m-size-2,
   200: $m-size-3,
   300: $m-size-4,
