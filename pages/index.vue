@@ -45,7 +45,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import firestore from '~/plugins/firebase.js'
+import db from '~/plugins/firebase.js'
 
 type Data = {
   books: Array<Books>
@@ -72,15 +72,10 @@ export default Vue.extend({
       books: []
     }
   },
-  created() {
-    firestore
-      .collection('books')
-      .get()
-      .then((res) => {
-        res.forEach((doc) => {
-          this.books.push(doc.data())
-        })
-      })
+  firestore() {
+    return {
+      books: db.collection('books')
+    }
   }
 })
 </script>
