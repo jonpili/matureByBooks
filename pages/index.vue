@@ -24,11 +24,11 @@ import MCard from '~/pages/MCard.vue'
 import MAddBookModal from '~/pages/MAddBookModal.vue'
 
 type Data = {
-  books: Array<Books>
+  books: Array<Book>
   openAddBookModal: boolean
 }
 
-type Books = {
+type Book = {
   id: number
   name: string
   description: string
