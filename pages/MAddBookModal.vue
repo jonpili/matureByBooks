@@ -1,5 +1,5 @@
 <template lang="pug">
-  el-dialog(title="カードを追加する" :visible="visible" @update:visible="updateValue" :before-close="handleClose")
+  el-dialog(title="カードを追加する" :width="width" :visible="visible" @update:visible="updateValue" :before-close="handleClose")
     .book.pb-200
       .mb-200.fs-300.fw-bold 本の内容
       .mb-200
@@ -53,6 +53,7 @@ type Book = {
 
 export default Vue.extend({
   props: {
+    width: String,
     visible: Boolean
   },
   data(): Data {
