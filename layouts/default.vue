@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 html {
   font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ',
     Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
@@ -23,104 +23,71 @@ html {
   margin: 0;
 }
 
-.mx-100 {
-  margin-left: 6px;
-  margin-right: 6px;
-}
-.my-100 {
-  margin-top: 6px;
-  margin-bottom: 6px;
-}
-.ml-100 {
-  margin-left: 6px;
-}
-.mr-100 {
-  margin-right: 6px;
-}
-.mt-100 {
-  margin-top: 6px;
-}
-.mb-100 {
-  margin-bottom: 6px;
+$m-spaces: (
+  100: 6px,
+  200: 12px,
+  300: 18px,
+  400: 24px,
+  500: 30px,
+  a: auto
+);
+
+@each $key, $value in $m-spaces {
+  .mx-#{$key} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+  .my-#{$key} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+  .ml-#{$key} {
+    margin-left: $value;
+  }
+  .mr-#{$key} {
+    margin-left: $value;
+  }
+  .mt-#{$key} {
+    margin-top: $value;
+  }
+  .mb-#{$key} {
+    margin-bottom: $value;
+  }
+
+  .px-#{$key} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+  .py-#{$key} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+  .pl-#{$key} {
+    padding-left: $value;
+  }
+  .pr-#{$key} {
+    padding-left: $value;
+  }
+  .pt-#{$key} {
+    padding-top: $value;
+  }
+  .pb-#{$key} {
+    padding-bottom: $value;
+  }
 }
 
-.mx-200 {
-  margin-left: 12px;
-  margin-right: 12px;
-}
-.my-200 {
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-.ml-200 {
-  margin-left: 12px;
-}
-.mr-200 {
-  margin-right: 12px;
-}
-.mt-200 {
-  margin-top: 12px;
-}
-.mb-200 {
-  margin-bottom: 12px;
-}
+$m-sizes: (
+  100: 12px,
+  200: 15px,
+  300: 18px,
+  400: 24px,
+  500: 36px
+);
 
-.px-100 {
-  padding-left: 6px;
-  padding-right: 6px;
-}
-.py-100 {
-  padding-top: 6px;
-  padding-bottom: 6px;
-}
-.pl-100 {
-  padding-left: 6px;
-}
-.pr-100 {
-  padding-right: 6px;
-}
-.pt-100 {
-  padding-top: 6px;
-}
-.pb-100 {
-  padding-bottom: 6px;
-}
-
-.px-200 {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-.py-200 {
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-.pl-200 {
-  padding-left: 12px;
-}
-.pr-200 {
-  padding-right: 12px;
-}
-.pt-200 {
-  padding-top: 12px;
-}
-.pb-200 {
-  padding-bottom: 12px;
-}
-
-.fs-100 {
-  font-size: 12px;
-}
-.fs-200 {
-  font-size: 15px;
-}
-.fs-300 {
-  font-size: 18px;
-}
-.fs-400 {
-  font-size: 24px;
-}
-.fs-500 {
-  font-size: 36px;
+@each $key, $value in $m-sizes {
+  .fs-#{$key} {
+    font-size: $value;
+  }
 }
 
 .fw-bold {

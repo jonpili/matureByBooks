@@ -20,9 +20,11 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "element-ui": "^2.4.11",
     "firebase": "^7.15.1",
+    "node-sass": "^4.14.1",
     "nuxt": "^2.0.0",
     "pug": "^3.0.0",
     "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^8.0.2",
     "vuefire": "^2.2.0-alpha.0"
   },
   "devDependencies": {

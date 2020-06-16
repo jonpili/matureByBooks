@@ -46,7 +46,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style lang="scss" scoped>
 .book-img {
   width: 100%;
 }
