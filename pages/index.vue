@@ -14,12 +14,14 @@
           el-row(:gutter="12")
             el-col.mb-200(v-for="book in books" :key="book.id", :xs="24" :sm="12" :lg="6")
               m-card(:book="book")
+    m-add-card-modal(:visible.sync="openAddCardModal")
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import db from '~/plugins/firebase.js'
 import MCard from '~/pages/MCard.vue'
+import MAddCardModal from '~/pages/MAddCardModal.vue'
 
 type Data = {
   books: Array<Books>
@@ -43,7 +45,8 @@ type Books = {
 
 export default Vue.extend({
   components: {
-    MCard
+    MCard,
+    MAddCardModal
   },
   data(): Data {
     return {
