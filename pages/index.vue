@@ -9,25 +9,26 @@
                 .fs-300.fw-bold matureByBooks
                 .fs-100 本からの学びを最大化するアプリ
               el-col.menu(:xs="24" :sm="12" :lg="12")
-                el-button.my-50(@click="openAddBookModal = true" icon="el-icon-plus" circle)
+                el-button.my-50(@click="openBookModal = true" icon="el-icon-plus" circle)
         .main
           el-row(:gutter="12")
             el-col.mb-200(v-for="book in books" :key="book.id", :xs="24" :sm="12" :lg="6")
-              m-card(:book="book")
-    m-add-book-modal(v-if="$mq === 'xs'" width="90%" :visible.sync="openAddBookModal" @submit="submit")
-    m-add-book-modal(v-else-if="$mq === 'sm'" width="70%" :visible.sync="openAddBookModal" @submit="submit")
-    m-add-book-modal(v-else-if="$mq === 'lg'" width="50%" :visible.sync="openAddBookModal" @submit="submit")
+              m-card(:book="book" @edit="openEditBookModal")
+    m-book-modal(v-if="$mq === 'xs'" width="90%" :visible.sync="openBookModal" v-bind="selectedBook" @submit="submit")
+    m-book-modal(v-else-if="$mq === 'sm'" width="70%" :visible.sync="openBookModal" v-bind="selectedBook" @submit="submit")
+    m-book-modal(v-else-if="$mq === 'lg'" width="50%" :visible.sync="openBookModal" v-bind="selectedBook" @submit="submit")
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import db from '~/plugins/firebase.js'
 import MCard from '~/pages/MCard.vue'
-import MAddBookModal from '~/pages/MAddBookModal.vue'
+import MBookModal from '~/pages/MBookModal.vue'
 
 type Data = {
   books: Array<Book>
-  openAddBookModal: boolean
+  selectedBook: Object
+  openBookModal: boolean
 }
 
 type Book = {
@@ -48,15 +49,29 @@ type Book = {
 export default Vue.extend({
   components: {
     MCard,
-    MAddBookModal
+    MBookModal
   },
   data(): Data {
     return {
       books: [],
-      openAddBookModal: false
+      selectedBook: {},
+      openBookModal: false
     }
   },
   methods: {
+    openEditBookModal(book: Book) {
+      const flatBookObject = {
+        id: book.id,
+        name: book.name,
+        expection: book.learning.expection,
+        result: book.learning.result,
+        target: book.goal.target,
+        action: book.goal.action,
+        progress: book.goal.progress
+      }
+      this.selectedBook = flatBookObject
+      this.openBookModal = true
+    },
     submit(newBook: Book) {
       db.collection('books')
         .add(newBook)

@@ -47,7 +47,7 @@ export default Vue.extend({
   },
   methods: {
     openEditBookModal() {
-      console.log(1234567890)
+      this.$emit('edit', this.book)
     }
   }
 })
