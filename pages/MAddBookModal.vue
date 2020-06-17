@@ -1,5 +1,5 @@
 <template lang="pug">
-  el-dialog(title="カードを追加する" :width="width" :visible="visible" @update:visible="updateValue")
+  el-dialog(title="カードを追加する" :width="width" :visible="visible" @update:visible="changeVisible")
     .book.pb-200
       .mb-200.fs-300.fw-bold 本の内容
       el-row(:gutter="20")
@@ -30,6 +30,9 @@
       .mb-200
         .mb-100.fw-bold 進捗
       el-slider(v-model="book.goal.progress" :step="10")
+    template(slot="footer")
+      el-button(@click="changeVisible(false)") キャンセル
+      el-button(@click="changeVisible(false)" type="primary") 送信
 </template>
 
 <script lang="ts">
@@ -113,7 +116,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    updateValue(value: boolean): void {
+    changeVisible(value: boolean): void {
       this.$emit('update:visible', value)
     }
   }
