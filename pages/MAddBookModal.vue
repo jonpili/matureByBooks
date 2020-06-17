@@ -32,7 +32,7 @@
       el-slider(v-model="book.goal.progress" :step="10")
     template(slot="footer")
       el-button(@click="changeVisible(false)") キャンセル
-      el-button(@click="changeVisible(false)" type="primary") 送信
+      el-button(@click="submit" type="primary") 送信
 </template>
 
 <script lang="ts">
@@ -118,6 +118,10 @@ export default Vue.extend({
   methods: {
     changeVisible(value: boolean): void {
       this.$emit('update:visible', value)
+    },
+    submit(): void {
+      this.$emit('submit', this.book)
+      this.changeVisible(false)
     }
   }
 })
