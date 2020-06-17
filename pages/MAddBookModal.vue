@@ -44,7 +44,7 @@ type Data = {
 }
 
 type Book = {
-  id: number
+  id: string
   name: string
   description: string
   learning: {
@@ -66,8 +66,8 @@ export default Vue.extend({
     },
     visible: Boolean,
     id: {
-      type: Number,
-      required: true
+      type: String,
+      default: ''
     },
     name: {
       type: String,
@@ -115,7 +115,7 @@ export default Vue.extend({
         }
       },
       initialBook: {
-        id: this.id,
+        id: '',
         name: '',
         description: '',
         learning: {

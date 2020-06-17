@@ -14,9 +14,9 @@
           el-row(:gutter="12")
             el-col.mb-200(v-for="book in books" :key="book.id", :xs="24" :sm="12" :lg="6")
               m-card(:book="book")
-    m-add-book-modal(v-if="$mq === 'xs'" width="90%" :visible.sync="openAddBookModal" :id="books.length + 1" @submit="submit")
-    m-add-book-modal(v-else-if="$mq === 'sm'" width="70%" :visible.sync="openAddBookModal" :id="books.length + 1" @submit="submit")
-    m-add-book-modal(v-else-if="$mq === 'lg'" width="50%" :visible.sync="openAddBookModal" :id="books.length + 1" @submit="submit")
+    m-add-book-modal(v-if="$mq === 'xs'" width="90%" :visible.sync="openAddBookModal" @submit="submit")
+    m-add-book-modal(v-else-if="$mq === 'sm'" width="70%" :visible.sync="openAddBookModal" @submit="submit")
+    m-add-book-modal(v-else-if="$mq === 'lg'" width="50%" :visible.sync="openAddBookModal" @submit="submit")
 </template>
 
 <script lang="ts">
@@ -31,7 +31,7 @@ type Data = {
 }
 
 type Book = {
-  id: number
+  id: string
   name: string
   description: string
   learning: {
