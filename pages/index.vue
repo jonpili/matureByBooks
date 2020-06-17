@@ -14,9 +14,9 @@
           el-row(:gutter="12")
             el-col.mb-200(v-for="book in books" :key="book.id", :xs="24" :sm="12" :lg="6")
               m-card(:book="book")
-    m-add-book-modal(v-if="$mq === 'xs'" width="90%" :visible.sync="openAddBookModal")
-    m-add-book-modal(v-else-if="$mq === 'sm'" width="70%" :visible.sync="openAddBookModal")
-    m-add-book-modal(v-else-if="$mq === 'lg'" width="50%" :visible.sync="openAddBookModal")
+    m-add-book-modal(v-if="$mq === 'xs'" width="90%" :visible.sync="openAddBookModal" :id="this.books.length + 1")
+    m-add-book-modal(v-else-if="$mq === 'sm'" width="70%" :visible.sync="openAddBookModal" :id="this.books.length + 1")
+    m-add-book-modal(v-else-if="$mq === 'lg'" width="50%" :visible.sync="openAddBookModal" :id="this.books.length + 1")
 </template>
 
 <script lang="ts">

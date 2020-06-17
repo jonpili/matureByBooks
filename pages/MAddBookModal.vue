@@ -56,23 +56,58 @@ type Book = {
 
 export default Vue.extend({
   props: {
-    width: String,
-    visible: Boolean
+    width: {
+      type: String,
+      default: '50%'
+    },
+    visible: Boolean,
+    id: {
+      type: Number,
+      required: true
+    },
+    name: {
+      type: String,
+      default: ''
+    },
+    description: {
+      type: String,
+      default: ''
+    },
+    expection: {
+      type: String,
+      default: ''
+    },
+    result: {
+      type: String,
+      default: ''
+    },
+    target: {
+      type: String,
+      default: ''
+    },
+    action: {
+      type: String,
+      default: ''
+    },
+    progress: {
+      type: Number,
+      default: 0
+    }
   },
   data(): Data {
     return {
       book: {
-        id: 99,
-        name: 'aa',
-        description: 'bb',
+        id: this.id,
+        name: this.name,
+        description: this.description,
         learning: {
-          expection: 'cc',
-          result: 'dd'
+          expection: this.expection,
+          result: this.result
         },
         goal: {
-          target: 'ee',
-          action: 'ff',
-          progress: 10
+          target: this.target,
+          action: this.action,
+          progress: this.progress
         }
       }
     }
