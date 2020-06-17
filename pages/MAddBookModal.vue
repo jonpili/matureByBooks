@@ -40,6 +40,7 @@ import Vue from 'vue'
 
 type Data = {
   book: Book
+  initialBook: Book
 }
 
 type Book = {
@@ -112,12 +113,29 @@ export default Vue.extend({
           action: this.action,
           progress: this.progress
         }
+      },
+      initialBook: {
+        id: this.id,
+        name: '',
+        description: '',
+        learning: {
+          expection: '',
+          result: ''
+        },
+        goal: {
+          target: '',
+          action: '',
+          progress: 0
+        }
       }
     }
   },
   methods: {
     changeVisible(value: boolean): void {
       this.$emit('update:visible', value)
+
+      // TODO: モーダルを閉じる際にコンポーネントを破壊する事でリセットする
+      this.book = this.initialBook
     },
     submit(): void {
       this.$emit('submit', this.book)
