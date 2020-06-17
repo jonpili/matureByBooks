@@ -58,7 +58,24 @@ export default Vue.extend({
   },
   methods: {
     submit(newBook: Book) {
-      db.collection('books').add(newBook)
+      db.collection('books')
+        .add(newBook)
+        .then(() => {
+          this.$message({
+            message: 'カードが追加されました',
+            type: 'success',
+            center: true
+          })
+        })
+        .catch((e) => {
+          // eslint-disable-next-line no-console
+          console.log(e)
+          this.$message({
+            message: 'カードの追加に失敗しました',
+            type: 'error',
+            center: true
+          })
+        })
     }
   },
   firestore() {
@@ -81,5 +98,8 @@ export default Vue.extend({
       flex-direction: row-reverse;
     }
   }
+}
+.message {
+  width: 240px;
 }
 </style>
