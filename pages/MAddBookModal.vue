@@ -1,5 +1,5 @@
 <template lang="pug">
-  el-dialog(title="カードを追加する" :width="width" :visible="visible" @update:visible="updateValue" :before-close="handleClose")
+  el-dialog(title="カードを追加する" :width="width" :visible="visible" @update:visible="updateValue")
     .book.pb-200
       .mb-200.fs-300.fw-bold 本の内容
       el-row(:gutter="20")
@@ -80,13 +80,6 @@ export default Vue.extend({
   methods: {
     updateValue(value: boolean): void {
       this.$emit('update:visible', value)
-    },
-    handleClose(done: () => void) {
-      this.$confirm('入力画面を閉じても宜しいですか？')
-        .then((_) => {
-          done()
-        })
-        .catch((_) => {})
     }
   }
 })
