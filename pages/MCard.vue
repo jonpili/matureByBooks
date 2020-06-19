@@ -1,12 +1,14 @@
 <template lang="pug">
   el-card(:body-style="{ padding: '12px' }")
+    .header.mb-100
+      .fs-300.fw-bold {{ book.name }}
+      el-button(@click="openEditBookModal" icon="el-icon-edit" circle)
     .book
       el-row
         el-col(:span="8")
           img.book-img(src="~assets/book.jpg")
         el-col(:span="16")
           .px-100
-            .fs-400.fw-bold {{ book.name }}
             .fs-100 {{ book.description }}
     .learning.mb-100
       .fs-300
@@ -42,11 +44,21 @@ export default Vue.extend({
       type: Object,
       required: true
     }
+  },
+  methods: {
+    openEditBookModal() {
+      this.$emit('edit', this.book)
+    }
   }
 })
 </script>
 
 <style lang="scss" scoped>
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .book-img {
   width: 100%;
 }

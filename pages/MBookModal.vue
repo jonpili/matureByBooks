@@ -5,31 +5,31 @@
       el-row(:gutter="20")
         el-col.mb-200(:xs="24" :sm="12" :lg="12")
           .mb-100.fw-bold タイトル
-          el-input(v-model="book.name")
+          el-input(v-model="name")
         el-col.mb-200(:xs="24" :sm="12" :lg="12")
           .mb-100.fw-bold 説明
-          el-input(v-model="book.description")
+          el-input(v-model="description")
     .learning.pb-200
       .mb-200.fs-300.fw-bold 学び
       el-row(:gutter="20")
         el-col.mb-200(:xs="24" :sm="12" :lg="12")
           .mb-100.fw-bold 期待
-          el-input(v-model="book.learning.expection")
+          el-input(v-model="expection")
         el-col.mb-200(:xs="24" :sm="12" :lg="12")
           .mb-100.fw-bold 結果
-          el-input(v-model="book.learning.result")
+          el-input(v-model="result")
     .goal.pb-200
       .mb-200.fs-300.fw-bold 目標
       el-row(:gutter="20")
         el-col.mb-200(:xs="24" :sm="12" :lg="12")
           .mb-100.fw-bold 指標
-          el-input(v-model="book.goal.target")
+          el-input(v-model="target")
         el-col.mb-200(:xs="24" :sm="12" :lg="12")
           .mb-100.fw-bold 目標
-          el-input(v-model="book.goal.action")
+          el-input(v-model="action")
       .mb-200
         .mb-100.fw-bold 進捗
-      el-slider(v-model="book.goal.progress" :step="10")
+      el-slider(v-model="progress" :step="10")
     template(slot="footer")
       el-button(@click="changeVisible(false)") キャンセル
       el-button(@click="submit" type="primary") 送信
@@ -44,7 +44,7 @@ type Data = {
 }
 
 type Book = {
-  id: number
+  id: string
   name: string
   description: string
   learning: {
@@ -66,8 +66,8 @@ export default Vue.extend({
     },
     visible: Boolean,
     id: {
-      type: Number,
-      required: true
+      type: String,
+      default: 'ss'
     },
     name: {
       type: String,
@@ -115,7 +115,7 @@ export default Vue.extend({
         }
       },
       initialBook: {
-        id: this.id,
+        id: '',
         name: '',
         description: '',
         learning: {
